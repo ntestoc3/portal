@@ -1,5 +1,6 @@
 (ns portal.ui.commands
   (:require ["react" :as react]
+            ["papaparse" :refer [parse]]
             [clojure.pprint :as pp]
             [clojure.set :as set]
             [clojure.string :as str]
@@ -1006,11 +1007,15 @@
 (defn- parse-json [string]
   (js->clj (.parse js/JSON string)))
 
+(defn- parse-csv [string]
+  (js->clj (.-data (parse string))))
+
 (defn- parse-transit [string]
   (t/read (t/reader :json) string))
 
 (def parsers
   {:format/json    parse-json
+   :format/csv     parse-csv
    :format/edn     edn/read-string
    :format/transit parse-transit
    :format/text    identity})
