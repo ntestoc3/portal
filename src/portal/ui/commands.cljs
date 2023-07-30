@@ -5,6 +5,7 @@
             [clojure.set :as set]
             [clojure.string :as str]
             [cognitect.transit :as t]
+            [sci.core :as scc]
             [portal.async :as a]
             [portal.colors :as c]
             [portal.shortcuts :as shortcuts]
@@ -882,6 +883,11 @@
   (fn [& args]
     (when (= (count args) 1)
       (f (first args)))))
+
+(defn eval-with-args
+  [exp arg]
+  (scc/eval-string (str "(#" exp " " (pr-str arg) ")"))
+  )
 
 (def ^:private clojure-commands
   {#'clojure.core/vals        {:predicate map?}
