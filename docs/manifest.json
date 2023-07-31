@@ -1,1 +1,15 @@
-{"description":"A clojure tool to navigate through your data.","display_override":["minimal-ui"],"start_url":"https://djblue.github.io/portal/","name":"portal","handle_links":"preferred","scope":"https://djblue.github.io/portal/","short_name":"Portal","icons":[{"type":"image/svg+xml","sizes":"512x512","src":"icon.svg"}],"display":"standalone"}
+{
+    "description": "A clojure tool to navigate through your data.",
+    "display_override": ["minimal-ui"],
+    "start_url": "https://ntestoc3.github.io/portal/",
+    "name": "portal",
+    "handle_links": "preferred",
+    "scope": "https://ntestoc3.github.io/portal/",
+    "short_name": "Portal",
+    "icons": [{
+        "type": "image/svg+xml",
+        "sizes": "512x512",
+        "src": "icon.svg"
+    }],
+    "display": "standalone"
+}
