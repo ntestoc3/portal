@@ -147,12 +147,13 @@
          :border-bottom-right-radius (when-not expanded? (:border-radius theme))}}
        [ins/toggle-expand {:padding-left (:padding theme)}]
        [label value]
-       (when-let [file (:file value)]
+       (when (:file value)
          [d/div
-          {:style {:color (::c/uri theme)}}
-          file
-          (when-let [line (:line value)]
-            [:<> ":" line])])]]
+          [select/with-position
+           {:row -1 :column 1}
+           [ins/with-key
+            :loc
+            [ins/inspector {:portal.viewer/default :portal.viewer/source-location} value]]]])]]
 
      (when (:expanded? options)
        [ins/inspect-map-k-v (dissoc value :type :message :file :line :ns :var)])]))
